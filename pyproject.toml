@@ -59,7 +59,6 @@ exclude = '''
   | build
   | dist
 )/
-'''
 
 # Versions
 # 1.0.0  -> Initial release
