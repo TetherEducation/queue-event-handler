@@ -35,7 +35,7 @@ Using the Queue Event Handler is straightforward. Here's a basic example of how 
 from chalice import Chalice
 from events import SQSHandler
 
-app = Chalice(app_name='my-queue-handler')
+app = Chalice(app_name='my-app-name')
 
 
 @app.on_sqs_message(queue='my-sqs-queue')
