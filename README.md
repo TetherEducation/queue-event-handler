@@ -44,7 +44,6 @@ def process_sqs_message(event):
     try:
         return SQSHandler.handle(
             event_object=event,
-            event_type="event-type",
         )
     except Exception as error:
         log.error(f"Error processing request: {error}", exc_info=True)
