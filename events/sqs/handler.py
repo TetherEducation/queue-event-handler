@@ -2,12 +2,7 @@ import base64
 import json
 import logging
 from typing import Dict
-
 from chalice.app import SQSEvent, SQSRecord
-from utils.errors import AdmissionNotFoundError
-from .qualtrics_sqs_handler import QualtricsSQSHandler
-from .payment_sqs_handler import PaymentSQSHandler
-from .event_types import EventType
 
 log = logging.getLogger("logdna")
 
@@ -36,11 +31,10 @@ class SQSHandler:
         return json_body
 
     @staticmethod
-    def handle(event_object: SQSEvent, event_type: EventType):
+    def handle(event_object: SQSEvent):
         """Handle an SQS event.
         Args:
             event_object (SQSEvent): The SQS event to handle.
-            event_type (EventType): The type of the event.
         Returns:
             dict: A dictionary containing the response of the event handling.
         """
@@ -50,16 +44,9 @@ class SQSHandler:
                     f"Processing message {record.to_dict().get('messageId', None)} from queue",
                     {"message": f"{record.body}"},
                 )
-                body = SQSHandler.process_and_decode_sqs_record(record=record)
-                if event_type == EventType.UPDATE_ADMISSION_FILLING_ENROLLMENT_STATUS:
-                    return QualtricsSQSHandler.handle(event=body)
-                elif event_type == EventType.UPDATE_ADMISSION_PAYMENT_STATUS:
-                    return PaymentSQSHandler.handle(event=body)
+                return SQSHandler.process_and_decode_sqs_record(record=record)
             except Exception as error:
                 log.info(
                     f"Returning message {record.to_dict().get('messageId')} to queue"
                 )
-                if isinstance(error, AdmissionNotFoundError):
-                    raise AdmissionNotFoundError(error)
-                else:
-                    raise Exception(error)
+                raise Exception(error)
