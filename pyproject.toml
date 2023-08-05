@@ -7,7 +7,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "events"
-version = "1.0.0"
+version = "1.1.0"
 requires-python = ">=3.9"
 readme = "README.md"
 authors = [
