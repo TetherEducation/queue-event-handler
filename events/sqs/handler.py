@@ -4,7 +4,7 @@ import logging
 from typing import Dict
 from chalice.app import SQSEvent, SQSRecord
 
-log = logging.getLogger("logdna")
+log = logging.getLogger(__name__)
 
 
 class SQSHandler:
