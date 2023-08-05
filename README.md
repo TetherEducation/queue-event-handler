@@ -24,7 +24,7 @@ To start using the Queue Event Handler, follow these simple steps:
 2. Import the Queue Event Handler module in your AWS Lambda function:
 
    ```python
-   from events import SQSHandler
+   from queue_event_handler import SQSHandler
    ```
 
 ### Usage
@@ -33,21 +33,21 @@ Using the Queue Event Handler is straightforward. Here's a basic example of how 
 
 ```python
 from chalice import Chalice
-from events import SQSHandler
+from queue_event_handler import SQSHandler
 
 app = Chalice(app_name='my-app-name')
 
 
 @app.on_sqs_message(queue='my-sqs-queue')
 def process_sqs_message(event):
-    # Process the SQS message here
-    try:
-        return SQSHandler.handle(
-            event_object=event,
-        )
-    except Exception as error:
-        log.error(f"Error processing request: {error}", exc_info=True)
-        raise Exception(error)
+   # Process the SQS message here
+   try:
+      return SQSHandler.handle(
+         event_object=event,
+      )
+   except Exception as error:
+      log.error(f"Error processing request: {error}", exc_info=True)
+      raise Exception(error)
 
 ```
 
