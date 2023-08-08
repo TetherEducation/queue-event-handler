@@ -1,45 +1,45 @@
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 # Build system that allows editable installs
-#[build-system]
-#requires = ["flit_core>=3.2"]
-#build-backend = "flit_core.buildapi"
-#
-#
-#[project]
-#name = "queue_event_handler"
-#version = "1.4.0"
-#requires-python = ">=3.9"
-#readme = "README.md"
-#authors = [
-#  { name = "Joaquín Grez", email = "joaco@tether.education"},
-#]
-#maintainers = [
-#  { name = "Alfonso Irarrázaval", email = "alfonso@tether.education"},
-#]
-#description = "The Queue Event Handler is a lightweight wrapper designed to streamline the management of Amazon Simple Queue Service (SQS) and Simple Notification"
-#license = { text = "MIT" }
-#classifiers =[
-#    "Development Status :: 5 - Production/Stable",
-#    "Intended Audience :: Developers",
-#    "License :: OSI Approved :: MIT License",
-#    "Natural Language :: English",
-#    "Operating System :: OS Independent",
-#    "Programming Language :: Python :: 3.9",
-#    "Topic :: Software Development :: Libraries :: Python Modules",
-#]
-#dependencies = [
-#  "chalice",
-#]
-#
-#[project.optional-dependencies]
-#dev = [
-#  "black",
-#]
-#
-#[project.urls]
-#Homepage = "https://github.com/TetherEducation/queue-event-handler"
-#Documentation = "https://github.com/TetherEducation/queue-event-handler/blob/master/README.md"
-#Source = "https://github.com/TetherEducation/queue-event-handler"
+[build-system]
+requires = ["flit_core>=3.2"]
+build-backend = "flit_core.buildapi"
+
+
+[project]
+name = "queue_event_handler"
+version = "1.6.0"
+requires-python = ">=3.9"
+readme = "README.md"
+authors = [
+  { name = "Joaquín Grez", email = "joaco@tether.education"},
+]
+maintainers = [
+  { name = "Alfonso Irarrázaval", email = "alfonso@tether.education"},
+]
+description = "The Queue Event Handler is a lightweight wrapper designed to streamline the management of Amazon Simple Queue Service (SQS) and Simple Notification"
+license = { text = "MIT" }
+classifiers =[
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "chalice",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+]
+
+[project.urls]
+Homepage = "https://github.com/TetherEducation/queue-event-handler"
+Documentation = "https://github.com/TetherEducation/queue-event-handler/blob/master/README.md"
+Source = "https://github.com/TetherEducation/queue-event-handler"
 
 [tool.black]
 line-length = 79
