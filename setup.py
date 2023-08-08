@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setuptools.setup(
     name="queue-event-handler",
     install_requires=["chalice"],
-    version="1.3.2",
+    version="1.5.0",
     author="Joaquín Grez",
     author_email="joaco@tether.education",
     description=("Thin wrapper for AWS Queues"),
