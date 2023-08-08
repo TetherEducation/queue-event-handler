@@ -44,7 +44,7 @@ class SQSHandler:
                     f"Processing message {record.to_dict().get('messageId', None)} from queue",
                     {"message": f"{record.body}"},
                 )
-                return SQSHandler.process_and_decode_sqs_record(record=record)
+                yield SQSHandler.process_and_decode_sqs_record(record=record)
             except Exception as error:
                 log.info(
                     f"Returning message {record.to_dict().get('messageId')} to queue"
